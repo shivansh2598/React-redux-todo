@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import {connect} from 'react-redux';
 
-function App() {
-  return (
+class App extends Component {
+  render() {
+    return( 
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input
+        type = "text"
+        onChange = {(event)=>{this.props.OnTodoChange(event)}}
+        value = {this.props.todo}   
+      />
+      <button className = "Button" onClick = {this.props.OnTodoAdd}> Add </button>
+      <hr/>
+      <ul>
+       {this.props.todoLst.map((elem)=><li onClick = {()=>{this.props.OnTodoDelete(elem.id)}} key = {elem.id}>{elem.text}</li>)}
+       </ul>
     </div>
-  );
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    todo : state.todo,
+    todoLst : state.todoLst
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    OnTodoChange : (event)=>dispatch({type : 'CHANGE', value : event.target.value}),
+    OnTodoAdd : ()=>dispatch({type : 'ADD'}),
+    OnTodoDelete : (id) => dispatch({type : 'DELETE', value : id})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
