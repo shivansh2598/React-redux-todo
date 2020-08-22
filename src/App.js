@@ -14,7 +14,14 @@ class App extends Component {
       <button className = "Button" onClick = {this.props.OnTodoAdd}> Add </button>
       <hr/>
       <ul>
-       {this.props.todoLst.map((elem)=><li onClick = {()=>{this.props.OnTodoDelete(elem.id)}} key = {elem.id}>{elem.text}</li>)}
+       {this.props.todoLst.map((elem)=>{
+         return(
+           <>
+           <li style = {{display : 'inline-block'}} key = {elem.id}> {elem.text + "  "} </li>
+           <button className = "Button" onClick = {()=>{this.props.OnTodoDelete(elem.id)}}>Delete</button>
+          </>
+         )
+       })}
        </ul>
     </div>
     );
