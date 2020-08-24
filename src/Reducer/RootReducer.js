@@ -1,7 +1,9 @@
 
 const initialState = {
     todo : '',
-    todoLst : []
+    todoLst : [],
+    counter : 0,
+    counterLst : []
 }
 
 const RootReducer = (state = initialState, action)=>{
@@ -24,6 +26,32 @@ const RootReducer = (state = initialState, action)=>{
                 todoLst : state.todoLst.filter((elem) => elem.id !== action.value)
             }
         }
+        case 'INCREMENT' : {
+            return {
+                ...state,
+                counter : state.counter + 1
+               
+            }
+        }
+        case 'DECREMENT' : {
+            return {
+                ...state,
+                counter : state.counter - 1
+            }
+        }
+        case 'ADD-COUNTER' : {
+            return {
+                ...state,
+                counterLst : state.counterLst.concat({key : new Date(), value : state.counter})
+            }
+        }
+        case 'DELETE-COUNTER' : {
+            return {
+                ...state,
+                counterLst : state.counterLst.filter((elem) => elem.key !== action.value)
+            }
+        }
+        
         default : return state
     }
 }

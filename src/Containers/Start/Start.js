@@ -4,6 +4,7 @@ import img from "../../logo.svg";
 import "./Start.css";
 import ProjectList from "../ProjectList/ProjectList";
 import Todo from "../Todo/Todo"
+import Counter from "../Counter/Counter"
 
 const Start = () => {
   return (
@@ -13,6 +14,7 @@ const Start = () => {
         <h1>Welcome to my collection of mini projects</h1>
         <Route path="/" exact component={ProjectList} />
         <Route path="/Todo" exact component = {Todo} />
+        <Route path='/Counter' exact component = {Counter} />
       </div>
     </div>
   );
