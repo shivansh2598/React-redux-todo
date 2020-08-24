@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import './Todo.css'
+import { Link } from 'react-router-dom';
 
 class Todo extends Component {
   render() {
@@ -37,6 +38,7 @@ class Todo extends Component {
             );
           })}
         </ul>
+        <button className="back-button"><Link style={{textDecoration : 'none'}} to = "/">Back</Link></button>
       </div>
     );
   }

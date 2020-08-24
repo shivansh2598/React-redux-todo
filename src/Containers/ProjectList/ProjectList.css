@@ -1,0 +1,5 @@
+.ProjectList ul {
+    list-style-type: '=>';
+    line-height: 180%;
+    color: darkkhaki;
+}

@@ -3,9 +3,9 @@
   }
   
   .Start-logo {
-    height: 15vmin;
+    height: 18vmin;
     pointer-events: none;
-    margin-top : 2vh;
+    margin-top : 5vmin;
   }
   
   @media (prefers-reduced-motion: no-preference) {

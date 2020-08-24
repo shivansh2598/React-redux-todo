@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Project = (props)=>{
     return (
-    <li> <NavLink to ={props.props.projectName} style = {{textDecoration : 'none', color : 'white'}}>{props.props.projectName}</NavLink></li>
+    <li> <NavLink to ={props.props.projectName} style = {{textDecoration : 'none', color : 'coral', marginLeft : '2vw', fontSize: 'larger'}}>{props.props.projectName}</NavLink></li>
     )
 }
 

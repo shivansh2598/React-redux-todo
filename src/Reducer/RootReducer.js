@@ -16,6 +16,7 @@ const RootReducer = (state = initialState, action)=>{
         }
         case 'ADD' : {
             return {
+                ...state,
                 todo : '',
                 todoLst : state.todoLst.concat({id : new Date(), text : state.todo}),
             }

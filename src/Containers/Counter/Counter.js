@@ -1,6 +1,7 @@
 import React from "react";
 import "./Counter.css";
 import { useDispatch, useSelector } from "react-redux";
+import {Link} from 'react-router-dom';
 
 const Counter = () => {
   const counter = useSelector((state) => state.counter);
@@ -41,6 +42,7 @@ const Counter = () => {
             return <li key={elems.key} onClick = {()=>{dispatch({type : 'DELETE-COUNTER', value : elems.key})}}>{elems.value}</li>;
           })}
         </ul>
+         <button className="back-button"><Link style={{textDecoration : 'none'}} to = "/">Back</Link></button>
       </div>
     </div>
   );

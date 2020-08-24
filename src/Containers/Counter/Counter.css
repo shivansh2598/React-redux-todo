@@ -29,3 +29,7 @@
   outline-style: none;
 }
 
+.back-button{
+  width: 15vmin;
+  font-size: large;
+}
